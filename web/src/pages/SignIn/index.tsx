@@ -47,7 +47,6 @@ const SigIn: React.FC = () => {
       } catch (err) {
         const errors = getValidatonErrors(err);
         formRef.current?.setErrors(errors);
-        console.log(err);
       }
     },
     [signIn],
