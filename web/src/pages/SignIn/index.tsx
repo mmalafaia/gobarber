@@ -50,7 +50,7 @@ const SigIn: React.FC = () => {
           password: data.password,
         });
 
-        history.push('/deshboard');
+        history.push('/dashboard');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidatonErrors(err);
