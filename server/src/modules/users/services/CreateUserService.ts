@@ -22,11 +22,11 @@ class CreateUserService {
   public async execute({ name, email, password }: IRequest): Promise<User> {
     const checkUserExists = await this.usersRepository.findByEmail(email);
 
-    const hashedPassword = await hash(password, 8);
-
     if (checkUserExists) {
       throw new AppError('Email address alredy used.');
     }
+
+    const hashedPassword = await hash(password, 8);
 
     const user = await this.usersRepository.create({
       name,
