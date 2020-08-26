@@ -2,8 +2,8 @@ import IMailProvider from '@shared/container/providers/MailProvider/models/IMail
 
 interface IMessage {
   to: string;
-  title: string;
-  body: string;
+  subject: string;
+  text: string;
 }
 
 export default class FakeMailProvider implements IMailProvider {
@@ -11,13 +11,13 @@ export default class FakeMailProvider implements IMailProvider {
 
   public async sendMail(
     to: string,
-    title: string,
-    body: string,
+    subject: string,
+    text: string,
   ): Promise<void> {
     this.messages.push({
       to,
-      title,
-      body,
+      subject,
+      text,
     });
   }
 }
