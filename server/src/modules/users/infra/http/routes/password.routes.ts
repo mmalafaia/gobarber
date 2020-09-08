@@ -21,11 +21,9 @@ passwordRouter.post(
   '/reset',
   celebrate({
     [Segments.BODY]: {
-      Token: Joi.string().uuid().required(),
+      token: Joi.string().uuid().required(),
       password: Joi.string().required(),
-      password_confirmation: Joi.string()
-        .required()
-        .valid(Joi.ref('passwords')),
+      password_confirmation: Joi.string().required().valid(Joi.ref('password')),
     },
   }),
   resetPasswordController.create,
