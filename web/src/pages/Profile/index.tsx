@@ -54,10 +54,7 @@ const Profile: React.FC = () => {
               then: Yup.string().required(),
               otherwise: Yup.string(),
             })
-            .oneOf(
-              [Yup.ref('password'), undefined],
-              'Confirmação de senha incorreta',
-            ),
+            .oneOf([Yup.ref('password'), undefined], 'Confirmação incorreta'),
         });
 
         await schema.validate(data, {
