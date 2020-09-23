@@ -21,7 +21,7 @@ interface ResetPasswordFormData {
   password_confirmation: string;
 }
 
-const SigIn: React.FC = () => {
+const ResetPassword: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const { addToast } = useToast();
@@ -47,9 +47,12 @@ const SigIn: React.FC = () => {
         });
 
         const { password, password_confirmation } = data;
+        console.log(location.search);
         const token = location.search.replace('?token=', '');
 
+        console.log(token);
         if (!token) {
+          console.log('token error');
           throw new Error();
         }
 
@@ -111,4 +114,4 @@ const SigIn: React.FC = () => {
   );
 };
 
-export default SigIn;
+export default ResetPassword;
